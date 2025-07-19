@@ -327,8 +327,8 @@ async def fetch_youtube_link_backup(query):
     except Exception as e:
         raise Exception(f"Backup Search API error: {e}")
     
-BOT_NAME = os.environ.get("BOT_NAME", "Frozen Music")
-BOT_LINK = os.environ.get("BOT_LINK", "https://t.me/vcmusiclubot")
+BOT_NAME = os.environ.get("BOT_NAME", "𝙎𝙃𝘼𝙉𝙉𝘼𝙀𝙔𝙔 𝙢𝙪𝙨𝙞𝙭")
+BOT_LINK = os.environ.get("BOT_LINK", "https://t.me/shannaeyymusixbot")
 
 from pyrogram.errors import UserAlreadyParticipant, RPCError
 
@@ -399,17 +399,16 @@ async def start_handler(_, message):
     buttons = [
         [
             InlineKeyboardButton(f"➕ {add_me_text}", url=f"{BOT_LINK}?startgroup=true"),
-            InlineKeyboardButton(f"📢 {updates_text}", url="https://t.me/vibeshiftbots")
+            InlineKeyboardButton(f"📢 {updates_text}", url="https://t.me/shannaeyy")
         ],
         [
-            InlineKeyboardButton(f"💬 {support_text}", url="https://t.me/Frozensupport1"),
             InlineKeyboardButton(f"❓ {help_text}", callback_data="show_help")
         ]
     ]
     reply_markup = InlineKeyboardMarkup(buttons)
 
-    await message.reply_animation(
-        animation="https://frozen-imageapi.lagendplayersyt.workers.dev/file/2e483e17-05cb-45e2-b166-1ea476ce9521.mp4",
+    await message.reply_photo(
+        photo="https://graph.org/file/899f7151a8d11ab4c7c4e-6eee9fb8a0b5ed6552.jpg",
         caption=caption,
         parse_mode=ParseMode.MARKDOWN,
         reply_markup=reply_markup
@@ -454,10 +453,9 @@ async def go_back_callback(_, callback_query):
     buttons = [
         [
             InlineKeyboardButton(f"➕ {add_me_text}", url=f"{BOT_LINK}?startgroup=true"),
-            InlineKeyboardButton(f"📢 {updates_text}", url="https://t.me/vibeshiftbots")
+            InlineKeyboardButton(f"📢 {updates_text}", url="https://t.me/shannaeyy")
         ],
         [
-            InlineKeyboardButton(f"💬 {support_text}", url="https://t.me/Frozensupport1"),
             InlineKeyboardButton(f"❓ {help_text}", callback_data="show_help")
         ]
     ]
@@ -727,14 +725,14 @@ async def process_play_command(message: Message, query: str):
         video_url, title, duration_iso, thumb = result
         if not video_url:
             await processing_message.edit(
-                "❌ Could not find the song. Try another query.\nSupport: @frozensupport1"
+                "❌ Could not find the song. Try another query.\nSupport: @shannaeyy"
             )
             return
 
         secs = isodate.parse_duration(duration_iso).total_seconds()
         if secs > MAX_DURATION_SECONDS:
             await processing_message.edit(
-                "❌ Streams longer than 15 min are not allowed. If u are the owner of this bot contact @xyz09723 to upgrade your plan"
+                "❌ Streams longer than 15 min are not allowed. If u are the owner of this bot contact @shannaeyy to upgrade your plan"
             )
             return
 
@@ -1165,7 +1163,7 @@ async def stop_handler(client, message):
         if "not in a call" in str(e).lower():
             await message.reply("❌ The bot is not currently in a voice chat.")
         else:
-            await message.reply(f"❌ An error occurred while leaving the voice chat: {str(e)}\n\nSupport: @frozensupport1")
+            await message.reply(f"❌ An error occurred while leaving the voice chat: {str(e)}\n\nSupport: @shannaeyy")
         return
 
     # Clear the song queue
@@ -1315,7 +1313,7 @@ async def reboot_handler(_, message):
 
         await message.reply("♻️ Rebooted for this chat. All data for this chat has been cleared.")
     except Exception as e:
-        await message.reply(f"❌ Failed to reboot for this chat. Error: {str(e)}\n\n support - @frozensupport1")
+        await message.reply(f"❌ Failed to reboot for this chat. Error: {str(e)}\n\n support - @shannaeyy")
 
 
 
@@ -1346,7 +1344,7 @@ async def ping_handler(_, message):
 
         await message.reply(response)
     except Exception as e:
-        await message.reply(f"❌ Failed to execute the command.\nError: {str(e)}\n\nSupport: @frozensupport1")
+        await message.reply(f"❌ Failed to execute the command.\nError: {str(e)}\n\nSupport: @shannaeyy")
 
 
 
@@ -1523,8 +1521,8 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # Fetch bot name and link and set default values from environment
-    BOT_NAME = os.environ.get("BOT_NAME", "Frozen Music")
-    BOT_LINK = os.environ.get("BOT_LINK", "https://t.me/vcmusiclubot")
+    BOT_NAME = os.environ.get("BOT_NAME", "𝙎𝙃𝘼𝙉𝙉𝘼𝙀𝙔 𝙢𝙪𝙨𝙞𝙭")
+    BOT_LINK = os.environ.get("BOT_LINK", "https://t.me/shannaeyymusixbot")
     logger.info(f"Bot name set to: {BOT_NAME}")
     logger.info(f"Bot link set to: {BOT_LINK}")
 
